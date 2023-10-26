@@ -1,9 +1,6 @@
 vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 10
 vim.opt.guicursor = ""
 
-vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
@@ -32,9 +29,14 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
+vim.api.nvim_command("let @+ = @\"")
 -- NETRW
 vim.g.netrw_list_hide = vim.fn["netrw_gitignore#Hide"]()
 vim.g.netrw_hide = 0
 vim.g.netrw_liststyle = 3
+
+
+-- file type syntax
+vim.cmd('autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy')

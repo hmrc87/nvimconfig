@@ -1,4 +1,3 @@
--- his file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
@@ -13,14 +12,8 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
-
+  use("catppuccin/nvim")
+  use("nvim-tree/nvim-web-devicons")
   use({
       "folke/trouble.nvim",
       config = function()
@@ -36,7 +29,7 @@ return require('packer').startup(function(use)
   use {
 			'nvim-treesitter/nvim-treesitter',
 			run = function()
-				local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
 				ts_update()
 			end,}
   use("nvim-treesitter/playground")
@@ -74,4 +67,18 @@ return require('packer').startup(function(use)
   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
   use('ThePrimeagen/vim-be-good')
+  use('mfussenegger/nvim-dap-python')
+  use({
+    "karloskar/poetry-nvim",
+    config = function()
+        require("poetry-nvim").setup()
+    end
+})
+  use('vim-airline/vim-airline')
+  use {
+    'fei6409/log-highlight.nvim',
+    config = function()
+        require('log-highlight').setup {}
+    end,
+}
 end)
