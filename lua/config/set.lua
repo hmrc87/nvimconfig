@@ -1,4 +1,3 @@
-vim.opt.number = true
 vim.opt.guicursor = ""
 
 vim.opt.relativenumber = true
@@ -7,7 +6,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
 
 vim.opt.smartindent = true
 
@@ -29,7 +27,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "180"
 
 vim.api.nvim_command("let @+ = @\"")
 -- NETRW
@@ -40,3 +38,9 @@ vim.g.netrw_liststyle = 3
 
 -- file type syntax
 vim.cmd('autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy')
+
+-- folding
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false

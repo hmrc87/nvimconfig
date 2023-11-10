@@ -1,9 +1,7 @@
-function ColorMyPencils(color) 
-	color = color or "catppuccin"
-
-	vim.cmd('colorscheme catppuccin')
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-end
-ColorMyPencils()
+  local colorscheme = "catppuccin-mocha"
+  local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+  vim.o.background = "dark" -- or "light" for light mode
+  if not ok then
+    vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
+  end
