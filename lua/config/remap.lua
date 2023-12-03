@@ -38,3 +38,8 @@ vim.keymap.set("n", "<leader><leader>", function()
     print("sourced current file: " .. vim.fn.expand("%"))
 end)
 vim.keymap.set("n", "<leader>f", "gg=G")
+
+-- open tms switch command in a popup (display-popup) when pressing leader + ss
+vim.keymap.set("n", "<leader>ss", function()
+    vim.cmd("!tms switch")
+end, { silent = true })
